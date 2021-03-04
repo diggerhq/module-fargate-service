@@ -53,9 +53,19 @@ resource "aws_alb_target_group" "main" {
 data "aws_elb_service_account" "main" {
 }
 
+
+resource "random_id" "lb-access-logs" {
+  keepers = {
+    # Generate a new id each time we switch to a new cluster-service
+    service = "${var.ecs_cluster.name}-${var.service_name}"
+  }
+
+  byte_length = 3
+}
+
 # bucket for storing ALB access logs
 resource "aws_s3_bucket" "lb_access_logs" {
-  bucket        = "${var.ecs_cluster.name}-lb-access-logs"
+  bucket        = random_id.lb-access-logs.service
   acl           = "private"
   tags          = var.tags
   force_destroy = true
