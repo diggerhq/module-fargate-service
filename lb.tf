@@ -65,7 +65,7 @@ resource "random_id" "lb-access-logs" {
 
 # bucket for storing ALB access logs
 resource "aws_s3_bucket" "lb_access_logs" {
-  bucket        = random_id.lb-access-logs.service
+  bucket        = random_id.lb-access-logs.keepers.service
   acl           = "private"
   tags          = var.tags
   force_destroy = true
