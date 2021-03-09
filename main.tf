@@ -25,7 +25,7 @@ resource "aws_appautoscaling_target" "app_scale_target" {
 }
 
 resource "aws_ecs_task_definition" "app" {
-  family                   = var.service_name
+  family                   = var.container_name
   requires_compatibilities = [var.launch_type]
   network_mode             = "awsvpc"
   cpu                      = "256"
