@@ -34,3 +34,14 @@ resource "aws_security_group_rule" "ingress_lb_http" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.nsg_lb.id
 }
+
+resource "aws_security_group_rule" "ingress_lb_https" {
+  type              = "ingress"
+  description       = var.lb_ssl_protocol
+  from_port         = var.lb_ssl_port
+  to_port           = var.lb_ssl_port
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.nsg_lb.id
+}
+

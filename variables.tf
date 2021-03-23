@@ -32,6 +32,15 @@ variable "lb_protocol" {
   default = "HTTP"
 }
 
+variable "lb_ssl_port" {
+  default = "443"
+}
+
+variable "lb_ssl_protocol" {
+  default = "HTTPS"
+}
+
+
 # Whether the application is available on the public internet,
 # also will determine which subnets will be used (public or private)
 variable "internal" {
