@@ -44,8 +44,9 @@ variable "lb_ssl_protocol" {
   default = "HTTPS"
 }
 
-# variable "lb_ssl_certificate_arn" {
-# }
+variable "lb_ssl_certificate_arn" {
+  default = null
+}
 
 # Whether the application is available on the public internet,
 # also will determine which subnets will be used (public or private)
