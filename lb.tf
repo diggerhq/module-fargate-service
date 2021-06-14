@@ -111,3 +111,7 @@ POLICY
 output "lb_dns" {
   value = aws_alb.main.dns_name
 }
+
+output "lb_zone_id" {
+  value = aws_alb.main.zone_id
+}
