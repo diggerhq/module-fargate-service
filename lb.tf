@@ -44,7 +44,7 @@ resource "aws_alb_target_group" "main" {
     matcher             = (var.lb_protocol == "TCP") ? null : var.health_check_matcher
     protocol            = var.lb_protocol
     interval            = var.health_check_interval
-    timeout             = var.health_check_timeout
+    timeout             = (var.lb_protocol == "TCP") ? null : var.health_check_timeout
     healthy_threshold   = 5
     unhealthy_threshold = 5
   }
