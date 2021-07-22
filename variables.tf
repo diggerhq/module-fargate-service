@@ -67,6 +67,10 @@ variable "deregistration_delay" {
 variable "health_check" {
 }
 
+variable "health_check_enabled" {
+  default = true
+}
+
 # How often to check the liveliness of the container
 variable "health_check_interval" {
   default = "30"
