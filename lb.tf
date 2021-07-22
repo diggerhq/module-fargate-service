@@ -41,7 +41,7 @@ resource "aws_alb_target_group" "main" {
   health_check {
     enabled             = var.health_check_enabled
     path                = var.health_check
-    matcher             = (var.lb_protocol == "TCP") null : var.health_check_matcher
+    matcher             = (var.lb_protocol == "TCP") ? null : var.health_check_matcher
     protocol            = var.lb_protocol
     interval            = var.health_check_interval
     timeout             = var.health_check_timeout
