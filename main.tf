@@ -65,7 +65,7 @@ resource "aws_ecs_task_definition" "app" {
         "awslogs-stream-prefix": "ecs"
       }
     },
-    %{ if var.mountPoint != false }
+    %{ if var.mountPoints != false }
     "mountPoints": []
     %{ endif }
   }
