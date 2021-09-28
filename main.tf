@@ -34,7 +34,7 @@ resource "aws_ecs_task_definition" "app" {
   # defined in role.tf
   # task_role_arn = aws_iam_role.app_role.arn
 
-  container_definitions = <<DEFINITION
+  container_definitions = <<EOT
 [
   {
     "name": "${var.container_name}",
@@ -70,7 +70,7 @@ resource "aws_ecs_task_definition" "app" {
     %{ endif }
   }
 ]
-DEFINITION
+EOT
   
   dynamic "volume" {
     for_each = var.volumes
