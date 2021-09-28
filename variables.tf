@@ -153,6 +153,9 @@ variable "task_memory" {
   default = "512"
 }
 
+variable "volumes" {
+  default = []
+}
 # == Cloudwatch ==
 
 
@@ -161,3 +164,4 @@ variable "logs_retention_in_days" {
   default     = 90
   description = "Specifies the number of days you want to retain log events"
 }
+
