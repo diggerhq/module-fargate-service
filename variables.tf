@@ -159,7 +159,7 @@ variable "volumes" {
 }
 
 variable "mountPoints" {
-  default = []
+  default = false
 }
 
 # == Cloudwatch ==
