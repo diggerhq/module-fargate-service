@@ -64,7 +64,8 @@ resource "aws_ecs_task_definition" "app" {
         "awslogs-region": "${var.region}",
         "awslogs-stream-prefix": "ecs"
       }
-    }
+    },
+    "mountPoints": ${var.mountPoints}
   }
 ]
 DEFINITION
