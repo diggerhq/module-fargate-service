@@ -67,7 +67,7 @@ resource "aws_ecs_task_definition" "app" {
     },
     "mountPoints": [
     %{ for mountPoint in var.mountPoints != false }
-    %{ endif }
+    %{ endfor }
     ]
   }
 ]
