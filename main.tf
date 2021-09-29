@@ -65,9 +65,10 @@ resource "aws_ecs_task_definition" "app" {
         "awslogs-stream-prefix": "ecs"
       }
     },
-    %{ if var.mountPoints != false }
-    "mountPoints": []
+    "mountPoints": [
+    %{ for mountPoint in var.mountPoints != false }
     %{ endif }
+    ]
   }
 ]
 EOT
