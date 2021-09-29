@@ -67,6 +67,10 @@ resource "aws_ecs_task_definition" "app" {
     },
     "mountPoints": [
     %{ for mountPoint in var.mountPoints }
+      {
+        "containerPath": "${mountPoint.path}",
+        "sourceVolume": "${mountPoint.volume}"
+      }
     %{ endfor }
     ]
   }
