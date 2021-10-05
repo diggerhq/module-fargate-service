@@ -85,6 +85,7 @@ EOT
       efs_volume_configuration {
         file_system_id          = volume.value.file_system_id
         root_directory          = "/"
+        transit_encryption      = "ENABLED"
       }
 
     }
