@@ -87,7 +87,6 @@ EOT
         root_directory          = "/"
         transit_encryption      = "ENABLED"
       }
-
     }
   }
 
