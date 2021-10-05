@@ -72,23 +72,18 @@ resource "aws_ecs_task_definition" "app" {
         "sourceVolume": "${mountPoint.volume}"
       }
     %{ endfor }
+    ],
+    "volumes": [
+    %{ for volume in var.volumes }
+      {
+        "file_system_id": "${volume.file_system_id}",
+        "root_directory": "/"
+      }
+    %{ endfor }
     ]
   }
 ]
 EOT
-  
-  dynamic "volume" {
-    for_each = var.volumes
-    content {
-      name = volume.value.name
-
-      efs_volume_configuration {
-        file_system_id          = volume.value.file_system_id
-        root_directory          = "/"
-      }
-
-    }
-  }
 
   tags = var.tags
 }
