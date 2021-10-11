@@ -98,7 +98,7 @@ resource "aws_ecs_service" "app" {
   cluster         = var.ecs_cluster.id
   launch_type     = var.launch_type
   task_definition = aws_ecs_task_definition.app.arn
-  desired_count   = var.replicas
+  desired_count   = var.ecs_autoscale_min_instances
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   network_configuration {

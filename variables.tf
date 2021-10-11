@@ -105,11 +105,6 @@ variable "lb_access_logs_expiration_days" {
 # isn't running at root.
 
 
-# How many containers to run
-variable "replicas" {
-  default = "1"
-}
-
 # The name of the container to run
 variable "container_name" {
 }
