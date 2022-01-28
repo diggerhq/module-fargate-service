@@ -29,7 +29,7 @@ resource "aws_lb_listener" "https" {
   }
 
   lifecycle {
-    ignore_changes = [port, protocol, ssl_policy, certificate_arn, default_action]
+    ignore_changes = [port, protocol, ssl_policy, default_action]
   }
 
 }
